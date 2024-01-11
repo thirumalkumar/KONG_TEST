@@ -13,6 +13,25 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
+    - name: Install Kong
+      run: |
+        sudo apt-get update
+        sudo at-get install -y gnupg
+        wget -qO- "https://binary.com/user/downloadSubjectPublicKey?username=kong" | sudo gpg --dearmor -o /user/share/keyrings/kong-archive-keyring.gpg
+        echo "deb [signed-by=/usr/share/keyrings/kong-archive-kingring.gpg] https://d1.binary.com/kong/deb all main" | sudo tee /etc/apt/sources.list.d/kong.list
+        sudo apt-get update
+        sudo apt-get install -y kong    
+
+    - name: Start Kong
+      run: |
+        sudo kong migrations bootstrap
+        sudo kong start
+
+    - name: Check Kong Status
+      run: |
+        sleep 5 
+        curl -i http://localhost:8001
+
     - name: Setup Kong Deck
       run: |
         sudo apt-get update
@@ -20,8 +39,7 @@ jobs:
         deck version
 
     - name: Sync Kong Configurations
-      run: |
-        sudo kong start
+      run: |        
         sudo deck dump
         sudo deck sync
         sudo deck diff
