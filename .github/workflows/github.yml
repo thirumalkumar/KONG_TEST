@@ -30,7 +30,7 @@ jobs:
     - name: Check Kong Status
       run: |
         sudo kong health
-        sleep 5 
+        sleep 6 
         curl -i http://localhost:8001
 
     - name: Setup Kong Deck
