@@ -20,7 +20,7 @@ jobs:
         #wget -qO- "https://binary.com/user/downloadSubjectPublicKey?username=kong" | sudo gpg --dearmor -o /user/share/keyrings/kong-archive-keyring.gpg
         #echo "deb [signed-by=/usr/share/keyrings/kong-archive-kingring.gpg] https://d1.binary.com/kong/deb all main" | sudo tee /etc/apt/sources.list.d/kong.list
         sudo apt-get update
-        sudo apt install kong    
+        sudo snap install kong    
 
     - name: Start Kong
       run: |
