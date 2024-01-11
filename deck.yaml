@@ -1,0 +1,14 @@
+#deck.yaml
+
+contexts:
+  github:
+    target:
+      type: github
+      repo: SulochanaGali/https://github.com/SulochanaGali/kong_manager.git
+      branch: main
+    files:
+      - /etc/kong/kong.yaml
+    template:
+      target:
+        type: filesystem
+        dir: .
