@@ -4,7 +4,7 @@ contexts:
   github:
     target:
       type: github
-      repo: SulochanaGali/https://github.com/SulochanaGali/kong_manager.git
+      repo: thirumalkumar/https://github.com/thirumalkumar/KONG_TEST.git
       branch: main
     files:
       - /etc/kong/kong.yaml
