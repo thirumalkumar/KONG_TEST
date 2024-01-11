@@ -23,7 +23,8 @@ jobs:
         sudo snap install kong    
 
     - name: Start Kong
-      run: |        
+      run: |    
+        sudo kong migrations bootstrap
         sudo kong start
 
     - name: Check Kong Status
