@@ -26,5 +26,5 @@ jobs:
     - name: Run Deck Push
       run: deck -c deck.yaml push --context github
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}         
+        GITHUB_TOKEN: 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         
   
