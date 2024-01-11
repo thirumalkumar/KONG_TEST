@@ -25,6 +25,7 @@ jobs:
     - name: Start Kong
       run: |    
         sudo kong migrations bootstrap
+        chmod 777 /snap/kong/208/share/lua/5.1/kong/cmd/start.lua
         sudo kong start
 
     - name: Check Kong Status
