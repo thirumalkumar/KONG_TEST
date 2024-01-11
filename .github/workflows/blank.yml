@@ -1,0 +1,30 @@
+name: Deploy Kong Configuration
+on: 
+  push: 
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main  
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with: 
+        node-version: '12'
+
+    -name: Install Deck
+     run: npm install -g @dec/app
+
+    - name: Run Deck Push
+      run: deck -c deck.yaml push --context github
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}         
+  
