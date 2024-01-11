@@ -15,7 +15,8 @@ jobs:
 
     - name: Setup Kong Deck
       run: |
-        apt install deck
+        sudo apt-get update
+        sudo apt-get install deck
         deck version
 
     - name: Sync Kong Configurations
