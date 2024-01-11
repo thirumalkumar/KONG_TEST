@@ -23,7 +23,7 @@ jobs:
       run: |
         sudo deck dump
         sudo deck sync
-        deck diff
+        sudo deck diff
 
     - name: Commit and Push Changes
       run: |
