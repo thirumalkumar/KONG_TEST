@@ -1,14 +1,1 @@
-#deck.yaml
 
-contexts:
-  github:
-    target:
-      type: github
-      repo: thirumalkumar/https://github.com/thirumalkumar/KONG_TEST.git
-      branch: main
-    files:
-      - /etc/kong/kong.yaml
-    template:
-      target:
-        type: filesystem
-        dir: .
