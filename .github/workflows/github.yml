@@ -15,7 +15,7 @@ jobs:
 
     - name: Setup Kong Deck
       run: |
-        curl -sSL https://bit.ly/install-deck | bash
+        apt install deck
         deck version
 
     - name: Sync Kong Configurations
