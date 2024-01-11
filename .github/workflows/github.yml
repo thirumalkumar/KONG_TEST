@@ -21,6 +21,7 @@ jobs:
 
     - name: Sync Kong Configurations
       run: |
+        sudo deck dump
         sudo deck sync
         deck diff
 
