@@ -1,0 +1,34 @@
+name: CI-DECK
+ 
+on:
+  pull_request:
+    branches: [ main ]
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      KONG_ADDR: http://0.0.0.0:8001
+    steps:
+    - uses: actions/checkout@v2
+      name: "checkout"
+    - name: decK ping
+      id: decK_ping
+      uses: ./
+      with:
+        command: "ping"
+        options: "--kong-addr ${{KONG_ADDR}}"
+    - name: decK validate
+      id: decK_validate
+      uses: ./
+      with:
+        command: "validate"
+        options: "--kong-addr ${{KONG_ADDR}}" 
+        kong_workspaces: "kong"
+    - name: decK diff
+      id: decK_diff
+      uses: ./
+      with:
+        command: "diff"
+        options: "--kong-addr ${{KONG_ADDR}}" 
+        kong_workspaces: "kong"
