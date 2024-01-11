@@ -29,6 +29,7 @@ jobs:
 
     - name: Check Kong Status
       run: |
+        sudo kong health
         sleep 5 
         curl -i http://localhost:8001
 
