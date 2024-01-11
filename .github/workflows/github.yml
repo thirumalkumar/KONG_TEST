@@ -25,7 +25,7 @@ jobs:
     - name: Start Kong
       run: |    
         sudo kong migrations bootstrap
-        sudo kong start
+        sudo systemctl start kong
 
     - name: Check Kong Status
       run: |
