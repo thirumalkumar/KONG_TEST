@@ -1,0 +1,32 @@
+name: Kong Deck Sync
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deck-sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup Kong Deck
+      run: |
+        curl -sSL https://bit.ly/install-deck | bash
+        deck version
+
+    - name: Sync Kong Configurations
+      run: |
+        deck sync
+        deck diff
+
+    - name: Commit and Push Changes
+      run: |
+        git config --global user.email "thirumal.kumar@wipro.com"
+        git config --global user.name "Thirumalkumar"
+        git add .
+        git diff-index --quiet HEAD || git commit -m "Update Kong configuration"
+        git push
