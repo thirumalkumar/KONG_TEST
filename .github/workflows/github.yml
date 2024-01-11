@@ -21,7 +21,7 @@ jobs:
 
     - name: Sync Kong Configurations
       run: |
-        deck sync
+        sudo deck sync
         deck diff
 
     - name: Commit and Push Changes
