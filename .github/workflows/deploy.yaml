@@ -20,8 +20,8 @@ jobs:
       with: 
         node-version: '12'
 
-    -name: Install Deck
-     run: npm install -g @dec/app
+    - name: Install Deck
+      run: npm install -g @deck/app
 
     - name: Run Deck Push
       run: deck -c deck.yaml push --context github
