@@ -15,6 +15,7 @@ jobs:
 
     - name: Install Kong
       run: |
+        cat /etc/os-release
         sudo apt-get update
         sudo apt-get install -y gnupg
         #wget -qO- "https://binary.com/user/downloadSubjectPublicKey?username=kong" | sudo gpg --dearmor -o /user/share/keyrings/kong-archive-keyring.gpg
